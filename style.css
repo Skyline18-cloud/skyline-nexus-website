@@ -396,3 +396,79 @@ padding:15px;
 border-radius:50%;
 font-size:20px;
 }
+/* =========================
+   DESKTOP FIX (Laptop View)
+========================= */
+
+@media (min-width: 1024px) {
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+/* NAVIGATION */
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+}
+
+/* HERO SECTION */
+.hero{
+padding:120px 0;
+text-align:left;
+}
+
+.hero .hero-content{
+max-width:700px;
+margin:auto;
+}
+
+.hero h1{
+font-size:48px;
+line-height:1.2;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.6;
+}
+
+/* SECTIONS */
+section{
+padding:80px 0;
+}
+
+/* SERVICE GRID */
+.service-grid{
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+/* ABOUT SECTION */
+.about-grid{
+display:flex;
+gap:40px;
+align-items:center;
+}
+
+/* CONTACT */
+.contact-grid{
+display:flex;
+gap:40px;
+}
+
+/* FOOTER */
+footer{
+padding:40px 0;
+font-size:16px;
+}
+
+}
