@@ -1,1646 +1,920 @@
-/*==================================================
- SKYLINE NEXUS CONSTRUCTION
- PREMIUM CSS V2 - PART 1
-==================================================*/
+/* =====================================
+   SKYLINE NEXUS CONSTRUCTION V3
+   CSS PART 1 - BASE SETUP
+===================================== */
 
-/* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/* Reset */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* ---------- GOOGLE FONT ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
+/* ---------- ROOT VARIABLES ---------- */
+:root {
 
-body{
+    --primary: #0b3d91;
+    --secondary: #ff6a00;
+    --dark: #111;
+    --light: #ffffff;
+    --gray: #777;
+    --bg-light: #f5f7fa;
 
-font-family:'Poppins',sans-serif;
-background:#f4f8fc;
-color:#2d3748;
-overflow-x:hidden;
-line-height:1.7;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
 
 }
-
-/* Colors */
-
-:root{
-
---primary:#0d6efd;
---secondary:#084298;
---accent:#ffb400;
-
---dark:#101828;
---gray:#667085;
-
---white:#ffffff;
 
---shadow:0 18px 45px rgba(0,0,0,.10);
+/* ---------- GLOBAL STYLES ---------- */
 
---radius:18px;
-
+html {
+    scroll-behavior: smooth;
 }
-
-/* Container */
-
-.container{
-
-width:92%;
-max-width:1300px;
-margin:auto;
 
+body {
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
-
-/*==========================
-HEADER
-==========================*/
-
-header{
-
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:9999;
-
-background:rgba(255,255,255,.88);
 
-backdrop-filter:blur(18px);
+/* ---------- CONTAINER ---------- */
 
-box-shadow:0 8px 30px rgba(0,0,0,.08);
-
-transition:.4s;
-
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
 }
-
-.nav{
-
-display:flex;
 
-justify-content:space-between;
+/* ---------- SECTION BASIC STYLE ---------- */
 
-align-items:center;
-
-padding:18px 0;
-
+.section {
+    padding: 80px 0;
 }
-
-/* Logo */
-
-.logo{
 
-display:flex;
-
-align-items:center;
-
-gap:16px;
-
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
 }
-
-.site-logo{
-
-width:72px;
-
-height:72px;
-
-background:#fff;
-
-padding:8px;
 
-border-radius:16px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.12);
-
-transition:.35s;
-
-animation:floatLogo 5s ease-in-out infinite;
-
+.section-title span {
+    color: var(--secondary);
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 14px;
 }
 
-.site-logo:hover{
-
-transform:scale(1.08) rotate(-5deg);
-
+.section-title h2 {
+    font-size: 32px;
+    margin: 10px 0;
+    color: var(--primary);
 }
-
-.logo-text h2{
-
-font-size:30px;
 
-font-weight:800;
-
-color:var(--primary);
-
-line-height:1;
-
+.section-title p {
+    color: var(--gray);
+    max-width: 700px;
+    margin: auto;
 }
-
-.logo-text span{
 
-font-size:14px;
+/* ---------- BUTTONS ---------- */
 
-color:#666;
-
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--light);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
 }
-
-/* Menu */
-
-nav ul{
-
-display:flex;
 
-gap:34px;
-
-list-style:none;
-
+.btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
 }
-
-nav ul li a{
-
-text-decoration:none;
-
-font-weight:600;
-
-color:#222;
-
-transition:.3s;
-
-position:relative;
 
+.btn-outline {
+    display: inline-block;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: var(--transition);
 }
 
-nav ul li a::after{
-
-content:"";
-
-position:absolute;
-
-bottom:-8px;
-
-left:0;
-
-width:0;
-
-height:3px;
+.btn-outline:hover {
+    background: var(--primary);
+    color: var(--light);
+}
 
-background:var(--primary);
+/* ---------- IMAGES ---------- */
 
-transition:.35s;
+img {
+ /* =====================================
+   SKYLINE NEXUS CONSTRUCTION V3
+   CSS PART 2 - HEADER + HERO
+===================================== */
 
-border-radius:20px;
+/* ---------- PRELOADER ---------- */
 
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: var(--light);
 }
-
-nav ul li a:hover{
 
-color:var(--primary);
-
+.loader-circle {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255,255,255,0.2);
+    border-top: 5px solid var(--secondary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
 }
-
-nav ul li a:hover::after{
 
-width:100%;
-
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
 }
-
-/*==========================
-BUTTON
-==========================*/
-
-.btn{
-
-display:inline-block;
-
-padding:16px 36px;
-
-background:linear-gradient(135deg,#0d6efd,#084298);
 
-color:#fff;
+/* ---------- HEADER ---------- */
 
-font-weight:700;
-
-text-decoration:none;
-
-border-radius:50px;
-
-transition:.35s;
-
-box-shadow:0 15px 35px rgba(13,110,253,.35);
-
-position:relative;
-
-overflow:hidden;
-
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    z-index: 1000;
 }
-
-.btn:hover{
 
-transform:translateY(-4px);
-
-box-shadow:0 20px 45px rgba(13,110,253,.45);
-
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
 }
-
-.btn::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:-100%;
-
-width:100%;
 
-height:100%;
+/* ---------- LOGO ---------- */
 
-background:rgba(255,255,255,.25);
-
-transition:.5s;
-
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-
-.btn:hover::before{
-
-left:100%;
 
+.site-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
 }
-
-/*==========================
-HERO
-==========================*/
-
-.hero{
-
-position:relative;
-
-display:flex;
 
-align-items:center;
-
-min-height:100vh;
-
-background:
-
-linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),
-
-url("hero-bg.jpg.png");
-
-background-size:cover;
-
-background-position:center;
-
-background-repeat:no-repeat;
-
-overflow:hidden;
-
+.logo h2 {
+    font-size: 18px;
+    color: var(--primary);
 }
-
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-width:100%;
-
-height:100%;
-
-background:linear-gradient(90deg,
-
-rgba(0,0,0,.45),
 
-rgba(0,0,0,.18));
-
+.logo span {
+    font-size: 12px;
+    color: var(--gray);
 }
-
-.hero-content{
-
-position:relative;
-
-z-index:5;
 
-max-width:760px;
+/* ---------- NAV MENU ---------- */
 
-animation:fadeUp 1s ease;
-
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
 }
-
-.hero-tag{
-
-display:inline-block;
-
-padding:10px 22px;
 
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(10px);
-
-border-radius:30px;
-
-margin-bottom:25px;
-
-color:#fff;
-
-font-weight:600;
-
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: var(--transition);
 }
-
-.hero h1{
-
-font-size:64px;
 
-line-height:1.1;
-
-font-weight:800;
-
-color:#fff;
-
-margin-bottom:25px;
-
+nav ul li a:hover {
+    color: var(--secondary);
 }
 
-.hero h1 span{
+/* ---------- MOBILE MENU BUTTON ---------- */
 
-color:var(--accent);
-
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
-
-.hero p{
-
-font-size:20px;
-
-color:#f3f3f3;
 
-margin-bottom:40px;
+/* ---------- HERO SECTION ---------- */
 
-max-width:650px;
-
+.hero {
+    height: 100vh;
+    background: url("hero-bg.png") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
 }
-
-.hero-buttons{
-
-display:flex;
-
-gap:20px;
 
-flex-wrap:wrap;
-
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
 }
-
-/* Secondary Button */
-
-.btn-light{
-
-padding:16px 36px;
 
-border-radius:50px;
-
-background:#fff;
-
-color:var(--primary);
-
-text-decoration:none;
-
-font-weight:700;
-
-transition:.3s;
-
+.hero-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--light);
+    gap: 40px;
 }
-
-.btn-light:hover{
-
-background:var(--accent);
 
-color:#000;
+/* ---------- HERO LEFT ---------- */
 
+.hero-left {
+    flex: 1;
 }
 
-/*==========================
-SECTION
-==========================*/
-
-section{
-
-padding:110px 0;
-
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 13px;
+    margin-bottom: 15px;
 }
-
-.section-title{
 
-text-align:center;
-
-margin-bottom:70px;
-
+.hero-left h1 {
+    font-size: 45px;
+    line-height: 1.2;
 }
-
-.section-title h2{
-
-font-size:46px;
 
-font-weight:800;
-
-margin-bottom:15px;
-
-color:#111827;
-
+.hero-left h1 strong {
+    color: var(--secondary);
 }
-
-.section-title p{
 
-font-size:18px;
-
-color:#666;
-
+.hero-left p {
+    margin: 20px 0;
+    color: #ddd;
 }
-
-/*==========================
-ANIMATION
-==========================*/
-
-@keyframes fadeUp{
 
-from{
+/* ---------- HERO BUTTONS ---------- */
 
-opacity:0;
-
-transform:translateY(50px);
-
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
 }
-
-to{
-
-opacity:1;
 
-transform:translateY(0);
+/* ---------- HERO CONTACT ---------- */
 
+.hero-contact {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
 }
 
+.hero-contact div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-@keyframes floatLogo{
+/* ---------- HERO RIGHT CARD ---------- */
 
-0%,100%{
-
-transform:translateY(0);
-
+.hero-card {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
 }
-
-50%{
-
-transform:translateY(-8px);
 
+.hero-card h3 {
+    margin-bottom: 15px;
 }
 
+.hero-card ul {
+    list-style: none;
 }
 
-/*==========================
-Responsive Base
-==========================*/
-
-@media(max-width:992px){
-
-.hero h1{
-
-font-size:46px;
-
+.hero-card ul li {
+    margin-bottom: 8px;
 }
+ /* =====================================
+   SKYLINE NEXUS CONSTRUCTION V3
+   CSS PART 3 - ABOUT + STATS + SERVICES
+===================================== */
 
-nav ul{
+/* ---------- ABOUT SECTION ---------- */
 
-gap:18px;
-
+.about {
+    background: var(--bg-light);
 }
 
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    align-items: center;
 }
-
-@media(max-width:768px){
-
-.nav{
-
-flex-direction:column;
 
-gap:18px;
-
+.about-content h3 {
+    font-size: 26px;
+    color: var(--primary);
+    margin-bottom: 15px;
 }
-
-nav ul{
-
-flex-wrap:wrap;
-
-justify-content:center;
 
+.about-content p {
+    color: var(--gray);
+    margin-bottom: 20px;
 }
 
-.hero{
+/* ---------- ABOUT FEATURES ---------- */
 
-text-align:center;
-
-padding:120px 0;
-
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
-
-.hero h1{
-
-font-size:36px;
 
+.feature-box {
+    display: flex;
+    gap: 12px;
+    background: var(--light);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
-.hero p{
-
-font-size:17px;
-
+.feature-box:hover {
+    transform: translateY(-5px);
 }
-
-.hero-buttons{
-
-justify-content:center;
 
+.feature-box i {
+    font-size: 20px;
+    color: var(--secondary);
 }
 
-.section-title h2{
+.feature-box h4 {
+    font-size: 16px;
+    color: var(--primary);
+}
 
-font-size:34px;
+/* ---------- ABOUT IMAGE ---------- */
 
+.about-image img {
+    border-radius: 10px;
+    box-shadow: var(--shadow);
 }
-
-.site-logo{
 
-width:60px;
-height:60px;
+/* ---------- STATS SECTION ---------- */
 
+.stats {
+    background: var(--primary);
+    color: var(--light);
+    padding: 70px 0;
 }
-/*==================================================
- SKYLINE NEXUS CONSTRUCTION
- PREMIUM CSS V2 - PART 2
- About • Services • Machinery • Why Choose Us
-==================================================*/
 
-/*==========================
-ABOUT SECTION
-==========================*/
-
-.about-grid{
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:40px;
-align-items:center;
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
 }
 
-.about-content{
-background:#fff;
-padding:50px;
-border-radius:22px;
-box-shadow:var(--shadow);
-transition:.4s;
+.stat-card h2 {
+    font-size: 40px;
+    color: var(--secondary);
 }
 
-.about-content:hover{
-transform:translateY(-8px);
+.stat-card p {
+    margin-top: 5px;
+    font-size: 14px;
 }
+
+/* ---------- SERVICES SECTION ---------- */
 
-.about-content h3{
-font-size:36px;
-font-weight:700;
-color:var(--primary);
-margin-bottom:20px;
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.about-content p{
-font-size:17px;
-color:#666;
-margin-bottom:18px;
+.service-card {
+    background: var(--light);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
 }
 
-.about-card{
-background:linear-gradient(135deg,#0d6efd,#084298);
-color:#fff;
-padding:45px;
-border-radius:22px;
-text-align:center;
-box-shadow:var(--shadow);
-transition:.35s;
+.service-card:hover {
+    transform: translateY(-8px);
 }
 
-.about-card:hover{
-transform:translateY(-10px) scale(1.03);
+.service-card i {
+    font-size: 35px;
+    color: var(--primary);
+    margin-bottom: 15px;
 }
 
-.about-card h2{
-font-size:46px;
-margin-bottom:10px;
+.service-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary);
 }
 
-.about-card p{
-opacity
- /*==================================================
- SKYLINE NEXUS CONSTRUCTION
- PREMIUM CSS V2 - PART 3
- Quote • Contact • Footer
-==================================================*/
+.service-card p {
+    color: var(--gray);
+    font-size: 14px;
+}
+ /* =====================================
+   SKYLINE NEXUS CONSTRUCTION V3
+   CSS PART 4 - MACHINERY + PROJECTS + QUOTE
+===================================== */
 
-/*==========================
-QUOTATION SECTION
-==========================*/
+/* ---------- MACHINERY SECTION ---------- */
 
-.quote-section{
-padding:120px 0;
-background:linear-gradient(135deg,#eef5ff,#ffffff);
+.machinery {
+    background: var(--bg-light);
 }
 
-.quote-grid{
-display:grid;
-grid-template-columns:1.3fr 1fr;
-gap:40px;
-align-items:start;
+.machinery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.quote-form{
-background:#fff;
-padding:45px;
-border-radius:24px;
-box-shadow:0 20px 50px rgba(0,0,0,.08);
-transition:.35s;
+.machine-card {
+    background: var(--light);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
 }
 
-.quote-form:hover{
-transform:translateY(-6px);
+.machine-card:hover {
+    transform: translateY(-8px);
 }
-
-.quote-form input,
-.quote-form select,
-.quote-form textarea{
 
-width:100%;
-padding:18px;
-margin-bottom:18px;
-border:1px solid #dbe3ef;
-border-radius:14px;
-font-size:16px;
-background:#f8fbff;
-transition:.3s;
-font-family:inherit;
+.machine-icon {
+    font-size: 35px;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
 
+.machine-card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
 }
 
-.quote-form input:focus,
-.quote-form select:focus,
-.quote-form textarea:focus{
+.machine-card p {
+    color: var(--gray);
+    font-size: 14px;
+}
 
-border-color:#0d6efd;
-background:#fff;
-outline:none;
-box-shadow:0 0 0 4px rgba(13,110,253,.12);
+/* ---------- PROJECTS SECTION ---------- */
 
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.quote-form textarea{
-resize:none;
-min-height:170px;
+.project-card {
+    background: var(--light);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
-.quote-form button{
-width:100%;
-padding:18px;
-font-size:17px;
+.project-card:hover {
+    transform: translateY(-8px);
 }
-
-/*==========================
-CONTACT CARD
-==========================*/
-
-.contact-card{
-
-background:linear-gradient(135deg,#0d6efd,#084298);
-
-color:#fff;
 
-padding:45px;
-
-border-radius:24px;
-
-box-shadow:0 25px 45px rgba(0,0,0,.15);
-
-position:sticky;
-
-top:120px;
-
+.project-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
-
-.contact-card h3{
-
-font-size:32px;
-
-margin-bottom:35px;
 
+.project-content {
+    padding: 20px;
 }
 
-.contact-item{
+.project-content h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
 
-display:flex;
+.project-content p {
+    color: var(--gray);
+    font-size: 14px;
+}
 
-gap:18px;
+/* ---------- QUOTE SECTION ---------- */
 
-margin-bottom:28px;
+.quote-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    align-items: start;
+}
 
-align-items:flex-start;
+/* ---------- QUOTE INFO ---------- */
 
+.quote-info h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
 }
-
-.contact-item i{
 
-width:58px;
-height:58px;
+.quote-info p {
+    color: var(--gray);
+    margin-bottom: 20px;
+}
 
-display:flex;
-align-items:center;
-justify-content:center;
+.quote-info ul {
+    list-style: none;
+}
 
-background:rgba(255,255,255,.15);
+.quote-info ul li {
+    margin-bottom: 10px;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-border-radius:50%;
+.quote-info ul li i {
+    color: var(--secondary);
+}
 
-font-size:22px;
+/* ---------- FORM ---------- */
 
+.quote-form {
+    background: var(--light);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
 }
 
-.contact-item strong{
+.form-group {
+    margin-bottom: 15px;
+}
 
-display:block;
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: var(--transition);
+}
 
-margin-bottom:6px;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+}
+ /* =====================================
+   SKYLINE NEXUS CONSTRUCTION V3
+   CSS PART 5 - CONTACT + FOOTER + CTA + RESPONSIVE
+===================================== */
 
-font-size:17px;
+/* ---------- CONTACT SECTION ---------- */
 
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
 }
-
-.contact-item p{
 
-opacity:.95;
+.contact-card {
+    background: var(--light);
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
 
-line-height:1.7;
+.contact-card:hover {
+    transform: translateY(-8px);
+}
 
+.contact-card i {
+    font-size: 30px;
+    color: var(--primary);
+    margin-bottom: 10px;
 }
 
-/*==========================
-LOADER
-==========================*/
+.contact-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary);
+}
 
-#loader{
+.contact-card a,
+.contact-card p {
+    color: var(--gray);
+    text-decoration: none;
+}
 
-display:none;
+/* ---------- CTA SECTION ---------- */
 
-text-align:center;
+.cta {
+    background: var(--primary);
+    color: var(--light);
+    text-align: center;
+}
 
-padding:25px;
+.cta-box h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
 
+.cta-box p {
+    color: #ddd;
+    max-width: 700px;
+    margin: 10px auto 20px;
 }
 
-.spinner{
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
 
-width:55px;
+/* ---------- FOOTER ---------- */
 
-height:55px;
+.footer {
+    background: #0a0a0a;
+    color: var(--light);
+    padding: 60px 0;
+}
 
-margin:auto;
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
 
-border:6px solid #ddd;
+.footer-logo {
+    width: 50px;
+    margin-bottom: 10px;
+}
 
-border-top:6px solid #0d6efd;
+.footer-column h3,
+.footer-column h4 {
+    margin-bottom: 15px;
+}
 
-border-radius:50%;
+.footer-column p {
+    color: #bbb;
+    font-size: 14px;
+}
 
-animation:spin .8s linear infinite;
+.footer-column ul {
+    list-style: none;
+}
 
+.footer-column ul li {
+    margin-bottom: 8px;
 }
 
-@keyframes spin{
+.footer-column ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: var(--transition);
+}
 
-100%{
+.footer-column ul li a:hover {
+    color: var(--secondary);
+}
 
-transform:rotate(360deg);
+/* ---------- SOCIAL ICONS ---------- */
 
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
 }
 
+.footer-social a {
+    color: var(--light);
+    background: rgba(255,255,255,0.1);
+    padding: 8px;
+    border-radius: 5px;
+    transition: var(--transition);
 }
-
-#loader p{
 
-margin-top:15px;
-
-font-weight:600;
+.footer-social a:hover {
+    background: var(--secondary);
+}
 
-color:#0d6efd;
+/* ---------- COPYRIGHT ---------- */
 
+.copyright {
+    background: #000;
+    text-align: center;
+    padding: 15px;
+    color: #aaa;
+    font-size: 14px;
 }
 
-/*==========================
-SUCCESS MESSAGE
-==========================*/
+/* ---------- BACK TO TOP ---------- */
 
-#successMessage{
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: var(--secondary);
+    color: var(--light);
+    border: none;
+    padding: 12px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    box-shadow: var(--shadow);
+}
 
-display:none;
+/* ---------- FLOATING BUTTONS ---------- */
 
-text-align:center;
+.floating-whatsapp,
+.floating-call {
+    position: fixed;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    z-index: 999;
+}
 
-padding:35px;
+.floating-whatsapp {
+    bottom: 90px;
+    background: #25D366;
+}
 
-background:#eafaf0;
+.floating-call {
+    bottom: 150px;
+    background: var(--primary);
+}
 
-border-radius:20px;
+/* ---------- MODAL ---------- */
 
-margin-top:25px;
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
 
-animation:fadeSuccess .6s ease;
+.modal-content {
+    background: var(--light);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 400px;
+}
 
+.modal-content i {
+    font-size: 40px;
+    color: var(--secondary);
+    margin-bottom: 10px;
 }
 
-#successMessage i{
+/* ---------- LOADER ---------- */
 
-font-size:65px;
+.form-loader {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--light);
+    z-index: 9999;
+}
 
-color:#28a745;
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255,255,255,0.3);
+    border-top: 5px solid var(--secondary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
 
-margin-bottom:20px;
+/* ---------- TOAST ---------- */
 
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: var(--primary);
+    color: var(--light);
+    padding: 12px 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 9999;
 }
 
-#successMessage h3{
+/* ---------- RESPONSIVE DESIGN ---------- */
 
-font-size:30px;
+@media (max-width: 992px) {
 
-color:#28a745;
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
 
-margin-bottom:10px;
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+    }
 
-}
+    .menu-toggle {
+        display: block;
+    }
 
-#successMessage p{
+    .about-grid,
+    .quote-wrapper {
+        grid-template-columns: 1fr;
+    }
 
-color:#555;
+    .services-grid,
+    .machinery-grid,
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
+    .contact-grid,
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
-@keyframes fadeSuccess{
+@media (max-width: 576px) {
 
-from{
+    .hero-left h1 {
+        font-size: 30px;
+    }
 
-opacity:0;
+    .services-grid,
+    .machinery-grid,
+    .projects-grid,
+    .contact-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
 
-transform:translateY(30px);
+    .cta-buttons {
+        flex-direction: column;
+    }
 
 }
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-/*==========================
-MAP
-==========================*/
-
-.map-section{
-
-background:#fff;
-
-}
-
-.map iframe{
-
-width:100%;
-
-height:480px;
-
-border:none;
-
-border-radius:22px;
-
-box-shadow:0 20px 40px rgba(0,0,0,.12);
-
-}
-
-/*==========================
-FOOTER
-==========================*/
-
-footer{
-
-background:#0f172a;
-
-color:#fff;
-
-padding:70px 0 30px;
-
-}
-
-.footer-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:45px;
-
-margin-bottom:40px;
-
-}
-
-.footer-logo{
-
-width:90px;
-
-margin-bottom:18px;
-
-}
-
-footer h2,
-footer h3{
-
-margin-bottom:18px;
-
-}
-
-footer p,
-footer li{
-
-color:#cbd5e1;
-
-line-height:1.8;
-
-}
-
-footer ul{
-
-list-style:none;
-
-padding:0;
-
-}
-
-footer ul li{
-
-margin-bottom:10px;
-
-}
-
-footer ul li a{
-
-text-decoration:none;
-
-color:#cbd5e1;
-
-transition:.3s;
-
-}
-
-footer ul li a:hover{
-
-color:#fff;
-
-padding-left:6px;
-
-}
-
-footer hr{
-
-border:none;
-
-height:1px;
-
-background:#334155;
-
-margin:35px 0;
-
-}
-
-.copyright{
-
-text-align:center;
-
-color:#94a3b8;
-
-}
-
-/*==========================
-WHATSAPP
-==========================*/
-
-.whatsapp{
-
-position:fixed;
-
-right:25px;
-
-bottom:25px;
-
-width:65px;
-
-height:65px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:30px;
-
-color:#fff;
-
-text-decoration:none;
-
-box-shadow:0 18px 35px rgba(0,0,0,.25);
-
-z-index:999;
-
-transition:.35s;
-
-animation:pulse 2s infinite;
-
-}
-
-.whatsapp:hover{
-
-transform:scale(1.12);
-
-}
-
-@keyframes pulse{
-
-0%{
-
-box-shadow:0 0 0 0 rgba(37,211,102,.6);
-
-}
-
-70%{
-
-box-shadow:0 0 0 18px rgba(37,211,102,0);
-
-}
-
-100%{
-
-box-shadow:0 0 0 0 rgba(37,211,102,0);
-
-}
-
-}
-
-/*==========================
-BACK TO TOP
-==========================*/
-
-#topBtn{
-
-position:fixed;
-
-bottom:105px;
-
-right:25px;
-
-width:55px;
-
-height:55px;
-
-border:none;
-
-background:#0d6efd;
-
-color:#fff;
-
-font-size:20px;
-
-border-radius:50%;
-
-cursor:pointer;
-
-display:none;
-
-z-index:999;
-
-transition:.3s;
-
-box-shadow:0 15px 30px rgba(0,0,0,.20);
-
-}
-
-#topBtn:hover{
-
-background:#084298;
-
-transform:translateY(-5px);
-
-}
- /*==================================================
- SKYLINE NEXUS CONSTRUCTION
- PREMIUM CSS V2 - PART 4 (FINAL)
- Animations • Popup • Responsive • Premium Effects
-==================================================*/
-
-
-/*==========================
-SCROLL ANIMATION
-==========================*/
-
-.reveal{
-
-opacity:0;
-
-transform:translateY(70px);
-
-transition:1s ease;
-
-}
-
-.reveal.active{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-
-/*==========================
-CARD HOVER EFFECT
-==========================*/
-
-.service-card,
-.machine-card,
-.why-card,
-.about-card,
-.contact-card{
-
-transition:.45s ease;
-
-}
-
-.service-card:hover,
-.machine-card:hover,
-.why-card:hover{
-
-transform:translateY(-12px);
-
-box-shadow:0 30px 60px rgba(0,0,0,.18);
-
-}
-
-
-/*==========================
-IMAGE ZOOM
-==========================*/
-
-.hero{
-
-animation:heroZoom 18s infinite alternate;
-
-}
-
-@keyframes heroZoom{
-
-0%{
-
-background-size:100%;
-
-}
-
-100%{
-
-background-size:108%;
-
-}
-
-}
-
-
-/*==========================
-GLASS EFFECT
-==========================*/
-
-.glass{
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,.25);
-
-border-radius:20px;
-
-}
-
-
-/*==========================
-WELCOME POPUP
-==========================*/
-
-#welcomePopup{
-
-position:fixed;
-
-top:50%;
-
-left:50%;
-
-transform:translate(-50%,-50%);
-
-width:420px;
-
-max-width:90%;
-
-background:#fff;
-
-border-radius:24px;
-
-padding:40px;
-
-text-align:center;
-
-box-shadow:0 35px 80px rgba(0,0,0,.30);
-
-z-index:99999;
-
-display:none;
-
-animation:popup .5s ease;
-
-}
-
-#welcomePopup h2{
-
-font-size:34px;
-
-color:#0d6efd;
-
-margin-bottom:15px;
-
-}
-
-#welcomePopup p{
-
-margin-bottom:25px;
-
-color:#666;
-
-}
-
-#welcomePopup button{
-
-padding:14px 32px;
-
-border:none;
-
-background:#0d6efd;
-
-color:#fff;
-
-border-radius:50px;
-
-cursor:pointer;
-
-font-weight:600;
-
-transition:.3s;
-
-}
-
-#welcomePopup button:hover{
-
-background:#084298;
-
-}
-
-@keyframes popup{
-
-from{
-
-opacity:0;
-
-transform:translate(-50%,-45%) scale(.8);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translate(-50%,-50%) scale(1);
-
-}
-
-}
-
-
-/*==========================
-PRELOADER
-==========================*/
-
-#preloader{
-
-position:fixed;
-
-inset:0;
-
-background:#fff;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-flex-direction:column;
-
-z-index:999999;
-
-}
-
-.loader{
-
-width:70px;
-
-height:70px;
-
-border:7px solid #ddd;
-
-border-top:7px solid #0d6efd;
-
-border-radius:50%;
-
-animation:spin 1s linear infinite;
-
-}
-
-.loader-text{
-
-margin-top:20px;
-
-font-size:18px;
-
-font-weight:600;
-
-color:#0d6efd;
-
-}
-
-
-/*==========================
-HOVER ICON ROTATE
-==========================*/
-
-.service-card i,
-.machine-card i,
-.why-card i{
-
-transition:.5s;
-
-}
-
-.service-card:hover i,
-.machine-card:hover i,
-.why-card:hover i{
-
-transform:rotateY(180deg) scale(1.2);
-
-}
-
-
-/*==========================
-BUTTON SHINE
-==========================*/
-
-.btn{
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.btn::after{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:-100%;
-
-width:100%;
-
-height:100%;
-
-background:linear-gradient(
-
-90deg,
-
-transparent,
-
-rgba(255,255,255,.35),
-
-transparent
-
-);
-
-transition:.7s;
-
-}
-
-.btn:hover::after{
-
-left:100%;
-
-}
-
-
-/*==========================
-SCROLLBAR
-==========================*/
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#eef2f7;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#0d6efd;
-
-border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#084298;
-
-}
-
-
-/*==========================
-TEXT SELECTION
-==========================*/
-
-::selection{
-
-background:#0d6efd;
-
-color:#fff;
-
-}
-
-
-/*==========================
-RESPONSIVE
-==========================*/
-
-@media(max-width:992px){
-
-.hero h1{
-
-font-size:48px;
-
-}
-
-.quote-grid,
-.about-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.contact-card{
-
-position:relative;
-
-top:0;
-
-}
-
-}
-
-
-@media(max-width:768px){
-
-header{
-
-padding:8px 0;
-
-}
-
-.nav{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-nav ul{
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:15px;
-
-}
-
-.hero{
-
-padding:130px 0 80px;
-
-text-align:center;
-
-}
-
-.hero h1{
-
-font-size:34px;
-
-}
-
-.hero p{
-
-font-size:16px;
-
-}
-
-.hero-buttons{
-
-justify-content:center;
-
+    max-width: 100%;
+    display: block;
 }
-
-.section-title h2{
-
-font-size:32px;
-
-}
-
-.service-grid,
-.machinery-grid,
-.why-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.footer-grid{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.whatsapp{
-
-width:58px;
-
-height:58px;
-
-font-size:26px;
-
-}
-
-#topBtn{
-
-width:50px;
-
-height:50px;
-
-}
-
-
-
-/*==========================
-END
-==========================*/
