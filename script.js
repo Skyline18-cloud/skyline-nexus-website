@@ -1,98 +1,103 @@
 /* =====================================
    SKYLINE NEXUS CONSTRUCTION V3
-   JS PART 1 - CORE FUNCTIONALITY
+   CLEAN JS - FULL FILE
 ===================================== */
 
-/* ---------- PRELOADER ---------- */
+/* =====================================
+   PRELOADER
+===================================== */
 
 window.addEventListener("load", function () {
     const preloader = document.getElementById("preloader");
-    setTimeout(() => {
-        preloader.style.display = "none";
-    }, 1000);
+
+    if (preloader) {
+        setTimeout(() => {
+            preloader.style.display = "none";
+        }, 1000);
+    }
 });
 
-
-/* ---------- MOBILE MENU TOGGLE ---------- */
+/* =====================================
+   MOBILE MENU TOGGLE
+===================================== */
 
 const menuToggle = document.querySelector(".menu-toggle");
 const navMenu = document.querySelector("nav ul");
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+}
 
-
-/* ---------- BACK TO TOP BUTTON ---------- */
+/* =====================================
+   BACK TO TOP
+===================================== */
 
 const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        backToTop.style.display = "block";
-    } else {
-        backToTop.style.display = "none";
-    }
-});
-
-backToTop.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+if (backToTop) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTop.style.display = "block";
+        } else {
+            backToTop.style.display = "none";
+        }
     });
-});
 
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
-/* ---------- SCROLL PROGRESS BAR ---------- */
+/* =====================================
+   SCROLL PROGRESS BAR
+===================================== */
 
 const scrollProgress = document.getElementById("scrollProgress");
 
-window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+if (scrollProgress) {
+    window.addEventListener("scroll", () => {
 
-    const scrolled = (scrollTop / scrollHeight) * 100;
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-    if (scrollProgress) {
+        const scrolled = (scrollTop / scrollHeight) * 100;
+
         scrollProgress.style.width = scrolled + "%";
-    }
-});
-/* =====================================
-   SKYLINE NEXUS CONSTRUCTION V3
-   JS PART 2 - FORM + MODAL + TOAST
-===================================== */
+    });
+}
 
-/* ---------- ELEMENTS ---------- */
+/* =====================================
+   MODAL + TOAST + LOADER
+===================================== */
 
 const modal = document.getElementById("successModal");
 const toast = document.getElementById("toast");
 const formLoader = document.getElementById("formLoader");
 const quoteForm = document.querySelector(".quote-form form");
 
-
-/* ---------- SHOW MODAL ---------- */
+/* ---------- MODAL ---------- */
 
 function showModal() {
-    if (modal) {
-        modal.style.display = "flex";
-    }
+    if (modal) modal.style.display = "flex";
 }
-
-/* ---------- CLOSE MODAL ---------- */
 
 function closeModal() {
-    if (modal) {
-        modal.style.display = "none";
-    }
+    if (modal) modal.style.display = "none";
 }
 
-/* ---------- SHOW TOAST ---------- */
+/* ---------- TOAST ---------- */
 
-function showToast(message = "Message Sent Successfully!") {
-
+function showToast(message = "Success!") {
     if (!toast) return;
 
-    toast.querySelector("p").innerText = message;
+    const text = toast.querySelector("p");
+    if (text) text.innerText = message;
+
     toast.style.display = "block";
 
     setTimeout(() => {
@@ -100,28 +105,19 @@ function showToast(message = "Message Sent Successfully!") {
     }, 3000);
 }
 
-
-/* ---------- SHOW LOADER ---------- */
+/* ---------- LOADER ---------- */
 
 function showLoader() {
-    if (formLoader) {
-        formLoader.style.display = "flex";
-    }
+    if (formLoader) formLoader.style.display = "flex";
 }
-
-/* ---------- HIDE LOADER ---------- */
 
 function hideLoader() {
-    if (formLoader) {
-        formLoader.style.display = "none";
-    }
+    if (formLoader) formLoader.style.display = "none";
 }
 
-
-/* ---------- FORM SUBMIT HANDLING ---------- */
+/* ---------- FORM SUBMIT ---------- */
 
 if (quoteForm) {
-
     quoteForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
@@ -153,84 +149,70 @@ if (quoteForm) {
             showToast("Network Error. Try again.");
         }
     });
-
 }
+
 /* =====================================
-   SKYLINE NEXUS CONSTRUCTION V3
-   JS PART 3 - ANIMATIONS + COUNTERS
+   COUNTER ANIMATION
 ===================================== */
 
-
-/* ---------- COUNTER ANIMATION ---------- */
-
 const counters = document.querySelectorAll(".counter");
+let counterStarted = false;
 
 function animateCounter(counter) {
     const target = +counter.getAttribute("data-target");
     let count = 0;
-
     const speed = target / 100;
 
-    const updateCount = () => {
+    function update() {
         count += speed;
 
         if (count < target) {
             counter.innerText = Math.ceil(count);
-            requestAnimationFrame(updateCount);
+            requestAnimationFrame(update);
         } else {
             counter.innerText = target;
         }
-    };
+    }
 
-    updateCount();
+    update();
 }
-
-
-/* ---------- SCROLL TRIGGER FOR COUNTERS ---------- */
-
-let counterStarted = false;
 
 window.addEventListener("scroll", () => {
 
     const statsSection = document.querySelector(".stats");
 
-    if (!statsSection) return;
+    if (!statsSection || counterStarted) return;
 
-    const sectionTop = statsSection.offsetTop;
-    const sectionHeight = statsSection.offsetHeight;
+    const top = statsSection.offsetTop;
 
-    if (
-        window.scrollY + window.innerHeight >= sectionTop &&
-        !counterStarted
-    ) {
-        counters.forEach(counter => animateCounter(counter));
+    if (window.scrollY + window.innerHeight >= top) {
+        counters.forEach(animateCounter);
         counterStarted = true;
     }
 });
 
-
-/* ---------- SMOOTH NAV SCROLL ---------- */
+/* =====================================
+   SMOOTH NAV SCROLL
+===================================== */
 
 document.querySelectorAll("nav ul li a").forEach(link => {
-
     link.addEventListener("click", function (e) {
         e.preventDefault();
 
-        const targetId = this.getAttribute("href");
-        const targetSection = document.querySelector(targetId);
+        const target = document.querySelector(this.getAttribute("href"));
 
-        if (targetSection) {
+        if (target) {
             window.scrollTo({
-                top: targetSection.offsetTop - 70,
+                top: target.offsetTop - 70,
                 behavior: "smooth"
             });
         }
     });
-
 });
 
-
-/* ---------- ACTIVE NAV ON SCROLL ---------- */
+/* =====================================
+   ACTIVE NAV SCROLL
+===================================== */
 
 const sections = document.querySelectorAll("section");
 
@@ -239,13 +221,9 @@ window.addEventListener("scroll", () => {
     let current = "";
 
     sections.forEach(section => {
-
-        const sectionTop = section.offsetTop;
-
-        if (scrollY >= sectionTop - 100) {
+        if (window.scrollY >= section.offsetTop - 120) {
             current = section.getAttribute("id");
         }
-
     });
 
     document.querySelectorAll("nav ul li a").forEach(link => {
@@ -255,21 +233,20 @@ window.addEventListener("scroll", () => {
             link.classList.add("active");
         }
     });
-
 });
 
-
-/* ---------- MOBILE MENU CLOSE ON CLICK ---------- */
+/* =====================================
+   CLOSE MOBILE MENU ON CLICK
+===================================== */
 
 document.querySelectorAll("nav ul li a").forEach(link => {
-
     link.addEventListener("click", () => {
-        document.querySelector("nav ul").classList.remove("active");
+        if (navMenu) navMenu.classList.remove("active");
     });
-
 });
 
+/* =====================================
+   INIT LOG
+===================================== */
 
-/* ---------- INITIAL LOG ---------- */
-
-console.log("Skyline Nexus Construction V3 Fully Loaded 🚧");
+console.log("Skyline Nexus Construction V3 Loaded Successfully 🚧");
