@@ -1,8 +1,7 @@
-/*====================================================
+/*==================================================
  SKYLINE NEXUS CONSTRUCTION
- PREMIUM CSS V2
- PART 1
-=====================================================*/
+ PREMIUM CSS V2 - PART 1
+==================================================*/
 
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -13,38 +12,49 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+}
+
+html{
 scroll-behavior:smooth;
 }
 
 body{
+
 font-family:'Poppins',sans-serif;
-background:#f5f8fc;
-color:#222;
+background:#f4f8fc;
+color:#2d3748;
 overflow-x:hidden;
 line-height:1.7;
+
+}
+
+/* Colors */
+
+:root{
+
+--primary:#0d6efd;
+--secondary:#084298;
+--accent:#ffb400;
+
+--dark:#101828;
+--gray:#667085;
+
+--white:#ffffff;
+
+--shadow:0 18px 45px rgba(0,0,0,.10);
+
+--radius:18px;
+
 }
 
 /* Container */
 
 .container{
-width:90%;
-max-width:1250px;
+
+width:92%;
+max-width:1300px;
 margin:auto;
-}
 
-/* Scrollbar */
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#1976d2;
-border-radius:30px;
-}
-
-::-webkit-scrollbar-track{
-background:#eef4fb;
 }
 
 /*==========================
@@ -59,13 +69,11 @@ left:0;
 width:100%;
 z-index:9999;
 
-background:rgba(255,255,255,.82);
+background:rgba(255,255,255,.88);
 
-backdrop-filter:blur(20px);
+backdrop-filter:blur(18px);
 
-border-bottom:1px solid rgba(255,255,255,.3);
-
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+box-shadow:0 8px 30px rgba(0,0,0,.08);
 
 transition:.4s;
 
@@ -79,13 +87,11 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:16px 0;
+padding:18px 0;
 
 }
 
-/*==========================
-LOGO
-==========================*/
+/* Logo */
 
 .logo{
 
@@ -93,67 +99,63 @@ display:flex;
 
 align-items:center;
 
-gap:18px;
+gap:16px;
 
 }
 
 .site-logo{
 
-width:82px;
+width:72px;
 
-height:82px;
-
-object-fit:contain;
-
-padding:8px;
+height:72px;
 
 background:#fff;
 
-border-radius:18px;
+padding:8px;
 
-box-shadow:0 15px 30px rgba(0,0,0,.10);
+border-radius:16px;
 
-animation:floatLogo 4s ease-in-out infinite;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+transition:.35s;
+
+animation:floatLogo 5s ease-in-out infinite;
 
 }
 
-.logo h2{
+.site-logo:hover{
+
+transform:scale(1.08) rotate(-5deg);
+
+}
+
+.logo-text h2{
 
 font-size:30px;
 
 font-weight:800;
 
-color:#0d6efd;
+color:var(--primary);
 
-letter-spacing:1px;
-
-text-transform:uppercase;
+line-height:1;
 
 }
 
-.logo span{
+.logo-text span{
 
-display:block;
-
-font-size:13px;
-
-font-weight:600;
+font-size:14px;
 
 color:#666;
 
-margin-top:4px;
-
 }
 
-/*==========================
-NAVIGATION
-==========================*/
+/* Menu */
 
 nav ul{
 
 display:flex;
 
-gap:35px;
+gap:34px;
 
 list-style:none;
 
@@ -167,15 +169,9 @@ font-weight:600;
 
 color:#222;
 
-transition:.35s;
+transition:.3s;
 
 position:relative;
-
-}
-
-nav ul li a:hover{
-
-color:#1976d2;
 
 }
 
@@ -189,15 +185,21 @@ bottom:-8px;
 
 left:0;
 
-height:3px;
-
 width:0;
 
-background:#1976d2;
+height:3px;
+
+background:var(--primary);
+
+transition:.35s;
 
 border-radius:20px;
 
-transition:.35s;
+}
+
+nav ul li a:hover{
+
+color:var(--primary);
 
 }
 
@@ -215,35 +217,33 @@ BUTTON
 
 display:inline-block;
 
-padding:15px 36px;
+padding:16px 36px;
 
-border-radius:50px;
-
-background:linear-gradient(135deg,#2196f3,#1565c0);
+background:linear-gradient(135deg,#0d6efd,#084298);
 
 color:#fff;
 
-text-decoration:none;
-
 font-weight:700;
 
-letter-spacing:.5px;
+text-decoration:none;
 
-overflow:hidden;
-
-position:relative;
+border-radius:50px;
 
 transition:.35s;
 
-box-shadow:0 18px 35px rgba(33,150,243,.35);
+box-shadow:0 15px 35px rgba(13,110,253,.35);
+
+position:relative;
+
+overflow:hidden;
 
 }
 
 .btn:hover{
 
-transform:translateY(-6px);
+transform:translateY(-4px);
 
-box-shadow:0 25px 45px rgba(33,150,243,.45);
+box-shadow:0 20px 45px rgba(13,110,253,.45);
 
 }
 
@@ -253,9 +253,9 @@ content:"";
 
 position:absolute;
 
-left:-120%;
-
 top:0;
+
+left:-100%;
 
 width:100%;
 
@@ -263,33 +263,33 @@ height:100%;
 
 background:rgba(255,255,255,.25);
 
-transform:skewX(-25deg);
-
-transition:.6s;
+transition:.5s;
 
 }
 
 .btn:hover::before{
 
-left:120%;
+left:100%;
 
 }
 
 /*==========================
-HERO SECTION
+HERO
 ==========================*/
 
 .hero{
 
-min-height:100vh;
+position:relative;
 
 display:flex;
 
 align-items:center;
 
+min-height:100vh;
+
 background:
 
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),
 
 url("hero-bg.jpg.png");
 
@@ -299,9 +299,33 @@ background-position:center;
 
 background-repeat:no-repeat;
 
+overflow:hidden;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(90deg,
+
+rgba(0,0,0,.45),
+
+rgba(0,0,0,.18));
+
 }
 
 .hero-content{
+
+position:relative;
+
+z-index:5;
 
 max-width:760px;
 
@@ -309,19 +333,43 @@ animation:fadeUp 1s ease;
 
 }
 
+.hero-tag{
+
+display:inline-block;
+
+padding:10px 22px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(10px);
+
+border-radius:30px;
+
+margin-bottom:25px;
+
+color:#fff;
+
+font-weight:600;
+
+}
+
 .hero h1{
 
 font-size:64px;
 
-line-height:1.15;
+line-height:1.1;
 
 font-weight:800;
 
-color:#ffffff;
+color:#fff;
 
 margin-bottom:25px;
 
-text-shadow:0 5px 20px rgba(0,0,0,.45);
+}
+
+.hero h1 span{
+
+color:var(--accent);
 
 }
 
@@ -329,13 +377,49 @@ text-shadow:0 5px 20px rgba(0,0,0,.45);
 
 font-size:20px;
 
-color:#f1f1f1;
+color:#f3f3f3;
 
-margin-bottom:35px;
+margin-bottom:40px;
 
 max-width:650px;
 
-text-shadow:0 3px 10px rgba(0,0,0,.4);
+}
+
+.hero-buttons{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+/* Secondary Button */
+
+.btn-light{
+
+padding:16px 36px;
+
+border-radius:50px;
+
+background:#fff;
+
+color:var(--primary);
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:.3s;
+
+}
+
+.btn-light:hover{
+
+background:var(--accent);
+
+color:#000;
 
 }
 
@@ -345,7 +429,7 @@ SECTION
 
 section{
 
-padding:100px 0;
+padding:110px 0;
 
 }
 
@@ -359,13 +443,13 @@ margin-bottom:70px;
 
 .section-title h2{
 
-font-size:42px;
+font-size:46px;
 
 font-weight:800;
 
-color:#1565c0;
+margin-bottom:15px;
 
-margin-bottom:12px;
+color:#111827;
 
 }
 
@@ -373,7 +457,7 @@ margin-bottom:12px;
 
 font-size:18px;
 
-color:#777;
+color:#666;
 
 }
 
@@ -387,7 +471,7 @@ from{
 
 opacity:0;
 
-transform:translateY(60px);
+transform:translateY(50px);
 
 }
 
@@ -411,396 +495,27 @@ transform:translateY(0);
 
 50%{
 
-transform:translateY(-10px);
+transform:translateY(-8px);
 
 }
 
 }
-/*==================================================
-        SKYLINE NEXUS PREMIUM CSS V2
-                PART - 2
-===================================================*/
 
-
-/*=========================
-ABOUT SECTION
-=========================*/
-
-#about{
-background:#fff;
-}
-
-.about-grid{
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:45px;
-align-items:center;
-}
-
-.about-text{
-background:#fff;
-padding:45px;
-border-radius:24px;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-transition:.45s;
-border-top:5px solid #ff9800;
-}
-
-.about-text:hover{
-transform:translateY(-12px);
-box-shadow:0 25px 55px rgba(0,0,0,.12);
-}
-
-.about-text h3{
-font-size:36px;
-color:#0d47a1;
-margin-bottom:25px;
-font-weight:800;
-}
-
-.about-text p{
-font-size:17px;
-line-height:1.9;
-color:#555;
-margin-bottom:18px;
-}
-
-.about-card{
-background:linear-gradient(135deg,#0d47a1,#1565c0);
-color:#fff;
-padding:45px;
-border-radius:24px;
-text-align:center;
-box-shadow:0 18px 45px rgba(13,71,161,.35);
-transition:.4s;
-}
-
-.about-card:hover{
-transform:translateY(-12px);
-}
-
-.about-card h3{
-font-size:22px;
-margin-bottom:20px;
-opacity:.9;
-}
-
-.about-card h2{
-font-size:34px;
-margin-bottom:20px;
-font-weight:800;
-}
-
-.about-card p{
-font-size:16px;
-line-height:1.8;
-}
-
-
-
-/*=========================
-SERVICES
-=========================*/
-
-#services{
-background:#f5f9ff;
-}
-
-.service-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
-}
-
-.service-box{
-
-background:#fff;
-
-padding:45px 30px;
-
-border-radius:22px;
-
-text-align:center;
-
-position:relative;
-
-overflow:hidden;
-
-transition:.45s;
-
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-}
-
-.service-box::before{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-top:0;
-
-width:100%;
-
-height:5px;
-
-background:#ff9800;
-
-transition:.4s;
-
-}
-
-.service-box:hover{
-
-transform:translateY(-15px);
-
-box-shadow:0 30px 60px rgba(0,0,0,.14);
-
-}
-
-.service-box:hover::before{
-
-height:100%;
-
-opacity:.06;
-
-}
-
-.service-box i{
-
-font-size:60px;
-
-color:#1565c0;
-
-margin-bottom:25px;
-
-transition:.4s;
-
-}
-
-.service-box:hover i{
-
-transform:scale(1.15);
-
-color:#ff9800;
-
-}
-
-.service-box h3{
-
-font-size:26px;
-
-margin-bottom:18px;
-
-font-weight:700;
-
-color:#0d47a1;
-
-}
-
-.service-box p{
-
-font-size:16px;
-
-line-height:1.8;
-
-color:#666;
-
-}
-
-
-
-/*=========================
-WHY CHOOSE US
-=========================*/
-
-#why{
-
-background:#ffffff;
-
-}
-
-#why .service-box{
-
-border-bottom:5px solid transparent;
-
-}
-
-#why .service-box:hover{
-
-border-color:#1565c0;
-
-}
-
-
-
-/*=========================
-PROJECT STYLE
-=========================*/
-
-.project-card{
-
-background:#fff;
-
-padding:35px;
-
-border-radius:20px;
-
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-
-transition:.45s;
-
-}
-
-.project-card:hover{
-
-transform:translateY(-12px);
-
-}
-
-.project-card h3{
-
-font-size:25px;
-
-color:#0d47a1;
-
-margin-bottom:15px;
-
-}
-
-.project-card p{
-
-color:#666;
-
-line-height:1.8;
-
-}
-
-
-
-/*=========================
-GALLERY
-=========================*/
-
-.gallery-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:25px;
-
-}
-
-.gallery-box{
-
-overflow:hidden;
-
-border-radius:22px;
-
-box-shadow:0 15px 35px rgba(0,0,0,.12);
-
-}
-
-.gallery-box img{
-
-width:100%;
-
-height:260px;
-
-object-fit:cover;
-
-transition:.6s;
-
-}
-
-.gallery-box:hover img{
-
-transform:scale(1.12);
-
-}
-
-
-
-/*=========================
-SECTION TITLE
-=========================*/
-
-.section-title{
-
-margin-bottom:65px;
-
-text-align:center;
-
-}
-
-.section-title h2{
-
-font-size:44px;
-
-font-weight:800;
-
-color:#0d47a1;
-
-margin-bottom:15px;
-
-position:relative;
-
-display:inline-block;
-
-}
-
-.section-title h2::after{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-
-bottom:-12px;
-
-transform:translateX(-50%);
-
-width:80px;
-
-height:5px;
-
-background:#ff9800;
-
-border-radius:50px;
-
-}
-
-.section-title p{
-
-margin-top:25px;
-
-font-size:18px;
-
-color:#666;
-
-}
-
-
-
-/*=========================
-RESPONSIVE
-=========================*/
+/*==========================
+Responsive Base
+==========================*/
 
 @media(max-width:992px){
 
-.about-grid{
+.hero h1{
 
-grid-template-columns:1fr;
+font-size:46px;
 
 }
 
-.service-grid{
+nav ul{
 
-grid-template-columns:repeat(2,1fr);
+gap:18px;
 
 }
 
@@ -808,17 +523,45 @@ grid-template-columns:repeat(2,1fr);
 
 @media(max-width:768px){
 
-.service-grid{
+.nav{
 
-grid-template-columns:1fr;
+flex-direction:column;
+
+gap:18px;
 
 }
 
-.about-text,
+nav ul{
 
-.about-card{
+flex-wrap:wrap;
 
-padding:30px;
+justify-content:center;
+
+}
+
+.hero{
+
+text-align:center;
+
+padding:120px 0;
+
+}
+
+.hero h1{
+
+font-size:36px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
 
 }
 
@@ -828,118 +571,1076 @@ font-size:34px;
 
 }
 
+.site-logo{
+
+width:60px;
+height:60px;
+
 }
-/*====================================
- PREMIUM V2 - PART 3
- FINAL EFFECTS
-====================================*/
+/*==================================================
+ SKYLINE NEXUS CONSTRUCTION
+ PREMIUM CSS V2 - PART 2
+ About • Services • Machinery • Why Choose Us
+==================================================*/
 
-/* HERO BUTTON */
+/*==========================
+ABOUT SECTION
+==========================*/
 
-.hero .btn{
-    padding:18px 45px;
-    font-size:17px;
-    border-radius:60px;
-    background:linear-gradient(135deg,#ff9800,#ff6f00);
-    color:#fff;
-    font-weight:700;
-    letter-spacing:.5px;
-    box-shadow:0 15px 35px rgba(255,152,0,.35);
-    transition:.35s;
-}
-
-.hero .btn:hover{
-    transform:translateY(-6px);
-    box-shadow:0 25px 45px rgba(255,152,0,.45);
+.about-grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:40px;
+align-items:center;
 }
 
-/* HERO CONTENT */
-
-.hero-content{
-    max-width:720px;
-    animation:fadeHero 1.2s ease;
+.about-content{
+background:#fff;
+padding:50px;
+border-radius:22px;
+box-shadow:var(--shadow);
+transition:.4s;
 }
 
-@keyframes fadeHero{
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.about-content:hover{
+transform:translateY(-8px);
 }
 
-/* GLASS CARD */
+.about-content h3{
+font-size:36px;
+font-weight:700;
+color:var(--primary);
+margin-bottom:20px;
+}
 
+.about-content p{
+font-size:17px;
+color:#666;
+margin-bottom:18px;
+}
+
+.about-card{
+background:linear-gradient(135deg,#0d6efd,#084298);
+color:#fff;
+padding:45px;
+border-radius:22px;
+text-align:center;
+box-shadow:var(--shadow);
+transition:.35s;
+}
+
+.about-card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+.about-card h2{
+font-size:46px;
+margin-bottom:10px;
+}
+
+.about-card p{
+opacity
+ /*==================================================
+ SKYLINE NEXUS CONSTRUCTION
+ PREMIUM CSS V2 - PART 3
+ Quote • Contact • Footer
+==================================================*/
+
+/*==========================
+QUOTATION SECTION
+==========================*/
+
+.quote-section{
+padding:120px 0;
+background:linear-gradient(135deg,#eef5ff,#ffffff);
+}
+
+.quote-grid{
+display:grid;
+grid-template-columns:1.3fr 1fr;
+gap:40px;
+align-items:start;
+}
+
+.quote-form{
+background:#fff;
+padding:45px;
+border-radius:24px;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+transition:.35s;
+}
+
+.quote-form:hover{
+transform:translateY(-6px);
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea{
+
+width:100%;
+padding:18px;
+margin-bottom:18px;
+border:1px solid #dbe3ef;
+border-radius:14px;
+font-size:16px;
+background:#f8fbff;
+transition:.3s;
+font-family:inherit;
+
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus{
+
+border-color:#0d6efd;
+background:#fff;
+outline:none;
+box-shadow:0 0 0 4px rgba(13,110,253,.12);
+
+}
+
+.quote-form textarea{
+resize:none;
+min-height:170px;
+}
+
+.quote-form button{
+width:100%;
+padding:18px;
+font-size:17px;
+}
+
+/*==========================
+CONTACT CARD
+==========================*/
+
+.contact-card{
+
+background:linear-gradient(135deg,#0d6efd,#084298);
+
+color:#fff;
+
+padding:45px;
+
+border-radius:24px;
+
+box-shadow:0 25px 45px rgba(0,0,0,.15);
+
+position:sticky;
+
+top:120px;
+
+}
+
+.contact-card h3{
+
+font-size:32px;
+
+margin-bottom:35px;
+
+}
+
+.contact-item{
+
+display:flex;
+
+gap:18px;
+
+margin-bottom:28px;
+
+align-items:flex-start;
+
+}
+
+.contact-item i{
+
+width:58px;
+height:58px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:rgba(255,255,255,.15);
+
+border-radius:50%;
+
+font-size:22px;
+
+}
+
+.contact-item strong{
+
+display:block;
+
+margin-bottom:6px;
+
+font-size:17px;
+
+}
+
+.contact-item p{
+
+opacity:.95;
+
+line-height:1.7;
+
+}
+
+/*==========================
+LOADER
+==========================*/
+
+#loader{
+
+display:none;
+
+text-align:center;
+
+padding:25px;
+
+}
+
+.spinner{
+
+width:55px;
+
+height:55px;
+
+margin:auto;
+
+border:6px solid #ddd;
+
+border-top:6px solid #0d6efd;
+
+border-radius:50%;
+
+animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+#loader p{
+
+margin-top:15px;
+
+font-weight:600;
+
+color:#0d6efd;
+
+}
+
+/*==========================
+SUCCESS MESSAGE
+==========================*/
+
+#successMessage{
+
+display:none;
+
+text-align:center;
+
+padding:35px;
+
+background:#eafaf0;
+
+border-radius:20px;
+
+margin-top:25px;
+
+animation:fadeSuccess .6s ease;
+
+}
+
+#successMessage i{
+
+font-size:65px;
+
+color:#28a745;
+
+margin-bottom:20px;
+
+}
+
+#successMessage h3{
+
+font-size:30px;
+
+color:#28a745;
+
+margin-bottom:10px;
+
+}
+
+#successMessage p{
+
+color:#555;
+
+}
+
+@keyframes fadeSuccess{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==========================
+MAP
+==========================*/
+
+.map-section{
+
+background:#fff;
+
+}
+
+.map iframe{
+
+width:100%;
+
+height:480px;
+
+border:none;
+
+border-radius:22px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+/*==========================
+FOOTER
+==========================*/
+
+footer{
+
+background:#0f172a;
+
+color:#fff;
+
+padding:70px 0 30px;
+
+}
+
+.footer-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:45px;
+
+margin-bottom:40px;
+
+}
+
+.footer-logo{
+
+width:90px;
+
+margin-bottom:18px;
+
+}
+
+footer h2,
+footer h3{
+
+margin-bottom:18px;
+
+}
+
+footer p,
+footer li{
+
+color:#cbd5e1;
+
+line-height:1.8;
+
+}
+
+footer ul{
+
+list-style:none;
+
+padding:0;
+
+}
+
+footer ul li{
+
+margin-bottom:10px;
+
+}
+
+footer ul li a{
+
+text-decoration:none;
+
+color:#cbd5e1;
+
+transition:.3s;
+
+}
+
+footer ul li a:hover{
+
+color:#fff;
+
+padding-left:6px;
+
+}
+
+footer hr{
+
+border:none;
+
+height:1px;
+
+background:#334155;
+
+margin:35px 0;
+
+}
+
+.copyright{
+
+text-align:center;
+
+color:#94a3b8;
+
+}
+
+/*==========================
+WHATSAPP
+==========================*/
+
+.whatsapp{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:65px;
+
+height:65px;
+
+background:#25D366;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+color:#fff;
+
+text-decoration:none;
+
+box-shadow:0 18px 35px rgba(0,0,0,.25);
+
+z-index:999;
+
+transition:.35s;
+
+animation:pulse 2s infinite;
+
+}
+
+.whatsapp:hover{
+
+transform:scale(1.12);
+
+}
+
+@keyframes pulse{
+
+0%{
+
+box-shadow:0 0 0 0 rgba(37,211,102,.6);
+
+}
+
+70%{
+
+box-shadow:0 0 0 18px rgba(37,211,102,0);
+
+}
+
+100%{
+
+box-shadow:0 0 0 0 rgba(37,211,102,0);
+
+}
+
+}
+
+/*==========================
+BACK TO TOP
+==========================*/
+
+#topBtn{
+
+position:fixed;
+
+bottom:105px;
+
+right:25px;
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+background:#0d6efd;
+
+color:#fff;
+
+font-size:20px;
+
+border-radius:50%;
+
+cursor:pointer;
+
+display:none;
+
+z-index:999;
+
+transition:.3s;
+
+box-shadow:0 15px 30px rgba(0,0,0,.20);
+
+}
+
+#topBtn:hover{
+
+background:#084298;
+
+transform:translateY(-5px);
+
+}
+ /*==================================================
+ SKYLINE NEXUS CONSTRUCTION
+ PREMIUM CSS V2 - PART 4 (FINAL)
+ Animations • Popup • Responsive • Premium Effects
+==================================================*/
+
+
+/*==========================
+SCROLL ANIMATION
+==========================*/
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(70px);
+
+transition:1s ease;
+
+}
+
+.reveal.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+/*==========================
+CARD HOVER EFFECT
+==========================*/
+
+.service-card,
+.machine-card,
+.why-card,
 .about-card,
-.contact-form,
-.contact-info{
-    backdrop-filter:blur(18px);
-    background:rgba(255,255,255,.92);
+.contact-card{
+
+transition:.45s ease;
+
 }
 
-/* ICON ANIMATION */
+.service-card:hover,
+.machine-card:hover,
+.why-card:hover{
 
-.service-box i{
-    transition:.45s;
+transform:translateY(-12px);
+
+box-shadow:0 30px 60px rgba(0,0,0,.18);
+
 }
 
-.service-box:hover i{
-    transform:rotate(10deg) scale(1.15);
+
+/*==========================
+IMAGE ZOOM
+==========================*/
+
+.hero{
+
+animation:heroZoom 18s infinite alternate;
+
 }
 
-/* CARD BORDER */
+@keyframes heroZoom{
 
-.service-box::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:24px;
-    border:2px solid transparent;
-    transition:.4s;
+0%{
+
+background-size:100%;
+
 }
 
-.service-box:hover::
-/*========================================
-        PREMIUM V2 - FINAL PART 4
-=========================================*/
+100%{
 
-/* Smooth Scroll */
-html{
-scroll-behavior:smooth;
+background-size:108%;
+
 }
 
-/* Custom Scrollbar */
+}
+
+
+/*==========================
+GLASS EFFECT
+==========================*/
+
+.glass{
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.25);
+
+border-radius:20px;
+
+}
+
+
+/*==========================
+WELCOME POPUP
+==========================*/
+
+#welcomePopup{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:420px;
+
+max-width:90%;
+
+background:#fff;
+
+border-radius:24px;
+
+padding:40px;
+
+text-align:center;
+
+box-shadow:0 35px 80px rgba(0,0,0,.30);
+
+z-index:99999;
+
+display:none;
+
+animation:popup .5s ease;
+
+}
+
+#welcomePopup h2{
+
+font-size:34px;
+
+color:#0d6efd;
+
+margin-bottom:15px;
+
+}
+
+#welcomePopup p{
+
+margin-bottom:25px;
+
+color:#666;
+
+}
+
+#welcomePopup button{
+
+padding:14px 32px;
+
+border:none;
+
+background:#0d6efd;
+
+color:#fff;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+#welcomePopup button:hover{
+
+background:#084298;
+
+}
+
+@keyframes popup{
+
+from{
+
+opacity:0;
+
+transform:translate(-50%,-45%) scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+}
+
+
+/*==========================
+PRELOADER
+==========================*/
+
+#preloader{
+
+position:fixed;
+
+inset:0;
+
+background:#fff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+flex-direction:column;
+
+z-index:999999;
+
+}
+
+.loader{
+
+width:70px;
+
+height:70px;
+
+border:7px solid #ddd;
+
+border-top:7px solid #0d6efd;
+
+border-radius:50%;
+
+animation:spin 1s linear infinite;
+
+}
+
+.loader-text{
+
+margin-top:20px;
+
+font-size:18px;
+
+font-weight:600;
+
+color:#0d6efd;
+
+}
+
+
+/*==========================
+HOVER ICON ROTATE
+==========================*/
+
+.service-card i,
+.machine-card i,
+.why-card i{
+
+transition:.5s;
+
+}
+
+.service-card:hover i,
+.machine-card:hover i,
+.why-card:hover i{
+
+transform:rotateY(180deg) scale(1.2);
+
+}
+
+
+/*==========================
+BUTTON SHINE
+==========================*/
+
+.btn{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.btn::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-100%;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.35),
+
+transparent
+
+);
+
+transition:.7s;
+
+}
+
+.btn:hover::after{
+
+left:100%;
+
+}
+
+
+/*==========================
+SCROLLBAR
+==========================*/
 
 ::-webkit-scrollbar{
+
 width:10px;
+
 }
 
 ::-webkit-scrollbar-track{
-background:#eef5fb;
+
+background:#eef2f7;
+
 }
 
 ::-webkit-scrollbar-thumb{
-background:#1976d2;
+
+background:#0d6efd;
+
 border-radius:20px;
+
 }
 
 ::-webkit-scrollbar-thumb:hover{
-background:#0d47a1;
+
+background:#084298;
+
 }
 
-/* Section Reveal */
 
-section{
+/*==========================
+TEXT SELECTION
+==========================*/
+
+::selection{
+
+background:#0d6efd;
+
+color:#fff;
+
+}
+
+
+/*==========================
+RESPONSIVE
+==========================*/
+
+@media(max-width:992px){
+
+.hero h1{
+
+font-size:48px;
+
+}
+
+.quote-grid,
+.about-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.contact-card{
+
 position:relative;
-z-index:1;
+
+top:0;
+
 }
 
-/* Premium Background */
+}
 
-body{
 
-background:
-linear-gradient(to bottom,#ffffff
+@media(max-width:768px){
+
+header{
+
+padding:8px 0;
+
+}
+
+.nav{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+nav ul{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+.hero{
+
+padding:130px 0 80px;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.section-title h2{
+
+font-size:32px;
+
+}
+
+.service-grid,
+.machinery-grid,
+.why-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.footer-grid{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.whatsapp{
+
+width:58px;
+
+height:58px;
+
+font-size:26px;
+
+}
+
+#topBtn{
+
+width:50px;
+
+height:50px;
+
+}
+
+
+
+/*==========================
+END
+==========================*/
