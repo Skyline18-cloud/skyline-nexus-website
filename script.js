@@ -1,137 +1,150 @@
-// ================================
-// Skyline Nexus Construction
-// JavaScript
-// ================================
+/* ==========================================
+   SKYLINE NEXUS PREMIUM SCRIPT V2
+========================================== */
 
 // Back To Top Button
 
 const topBtn = document.getElementById("topBtn");
 
+window.addEventListener("scroll", function () {
+
+if (window.scrollY > 300) {
+topBtn.style.display = "block";
+} else {
+topBtn.style.display = "none";
+}
+
+});
+
+topBtn.addEventListener("click", function () {
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
+});
+
+// Sticky Header
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", function () {
+
+if (window.scrollY > 50) {
+
+header.style.background = "rgba(255,255,255,.96)";
+header.style.boxShadow = "0 10px 30px rgba(0,0,0,.12)";
+
+} else {
+
+header.style.background = "rgba(255,255,255,.82)";
+header.style.boxShadow = "0 10px 30px rgba(0,0,0,.08)";
+
+}
+
+});
+
+// Scroll Reveal Animation
+
+const reveals = document.querySelectorAll(
+".service-box,.about-card,.about-text,.contact-info,.contact-form"
+);
+
+function revealElements() {
+
+const windowHeight = window.innerHeight;
+
+reveals.forEach(function (el) {
+
+const top = el.getBoundingClientRect().top;
+
+if (top < windowHeight - 100) {
+
+el.style.opacity = "1";
+el.style.transform = "translateY(0)";
+
+}
+
+});
+
+}
+
+reveals.forEach(function (el) {
+
+el.style.opacity = "0";
+el.style.transform = "translateY(50px)";
+el.style.transition = "all .8s ease";
+
+});
+
+window.addEventListener("scroll", revealElements);
+
+revealElements();
+
+// Active Menu
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav ul li a");
+
 window.addEventListener("scroll", () => {
-  
-  if (window.scrollY > 300) {
-    
-    topBtn.style.display = "block";
-    
-  } else {
-    
-    topBtn.style.display = "none";
-    
-  }
-  
+
+let current = "";
+
+sections.forEach(section => {
+
+const sectionTop = section.offsetTop - 120;
+
+if (pageYOffset >= sectionTop) {
+
+current = section.getAttribute("id");
+
+}
+
 });
 
-topBtn.addEventListener("click", () => {
-  
-  window.scrollTo({
-    
-    top: 0,
-    
-    behavior: "smooth"
-    
-  });
-  
+navLinks.forEach(link => {
+
+link.classList.remove("active");
+
+if (link.getAttribute("href") === "#" + current) {
+
+link.classList.add("active");
+
+}
+
 });
 
-
-// ================================
-// Smooth Navigation
-// ================================
-
-document.querySelectorAll('nav a').forEach(anchor => {
-  
-  anchor.addEventListener('click', function(e) {
-    
-    e.preventDefault();
-    
-    document.querySelector(this.getAttribute('href'))
-      
-      .scrollIntoView({
-        
-        behavior: 'smooth'
-        
-      });
-    
-  });
-  
 });
 
+// Form Submit Success
 
-// ================================
-// Sticky Header Shadow
-// ================================
-
-window.addEventListener("scroll", () => {
-  
-  const header = document.querySelector("header");
-  
-  if (window.scrollY > 50) {
-    
-    header.style.boxShadow = "0 10px 30px rgba(0,0,0,.15)";
-    
-  } else {
-    
-    header.style.boxShadow = "0 3px 12px rgba(0,0,0,.08)";
-    
-  }
-  
-});
-
-
-// ================================
-// Fade Animation
-// ================================
-
-const observer = new IntersectionObserver(entries => {
-  
-  entries.forEach(entry => {
-    
-    if (entry.isIntersecting) {
-      
-      entry.target.classList.add("show");
-      
-    }
-    
-  });
-  
-});
-
-document.querySelectorAll("section").forEach(section => {
-  
-  observer.observe(section);
-  
-});
-
-
-// ================================
-// Console Message
-// ================================
-
-console.log("Skyline Nexus Construction & Earthmovers Website Loaded Successfully");
 const form = document.querySelector("form");
 
-form.addEventListener("submit", async function(e) {
-    e.preventDefault();
+if(form){
 
-    document.getElementById("loader").style.display = "block";
-    document.getElementById("successMessage").style.display = "none";
+form.addEventListener("submit", function(){
 
-    const data = new FormData(form);
+alert("Thank You! Your quotation request has been submitted successfully.");
 
-    const response = await fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: {
-            "Accept": "application/json"
-        }
-    });
+});
 
-    document.getElementById("loader").style.display = "none";
+}
 
-    if (response.ok) {
-        document.getElementById("successMessage").style.display = "block";
-        form.reset();
-    } else {
-        alert("Something went wrong. Please try again.");
-    }
+// Smooth Scroll
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+});
+
 });
