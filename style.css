@@ -144,12 +144,16 @@ nav ul li a:hover::after{
 /* Hero */
 
 .hero{
-    min-height:90vh;
-    display:flex;
-    align-items:center;
-    background:
-    linear-gradient(rgba(255,255,255,.82),rgba(255,255,255,.82)),
-    linear-gradient(135deg,#e8f4ff,#ffffff);
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("hero-bg.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+min-height:100vh;
+display:flex;
+align-items:center;
+}
 }
 
 .hero-content{
