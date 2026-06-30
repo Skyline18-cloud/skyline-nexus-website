@@ -108,3 +108,30 @@ document.querySelectorAll("section").forEach(section => {
 // ================================
 
 console.log("Skyline Nexus Construction & Earthmovers Website Loaded Successfully");
+const form = document.querySelector("form");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    document.getElementById("loader").style.display = "block";
+    document.getElementById("successMessage").style.display = "none";
+
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+
+    document.getElementById("loader").style.display = "none";
+
+    if (response.ok) {
+        document.getElementById("successMessage").style.display = "block";
+        form.reset();
+    } else {
+        alert("Something went wrong. Please try again.");
+    }
+});
